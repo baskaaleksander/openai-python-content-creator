@@ -1,0 +1,7 @@
+elevenlabs
+openai
+moviepy
+pexels-api-py
+faster-whisper
+opencv-python
+mutagen
