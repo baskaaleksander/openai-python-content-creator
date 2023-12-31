@@ -195,18 +195,13 @@ def add_subtitles(voice_over):
       max_width = max(max_width, x_pos + width)
       max_height = max(max_height, y_pos + height)
 
-    color_clip = ColorClip(size=(int(max_width*1.1), int(max_height*1.1)),
-                        color=(64, 64, 64))
-    color_clip = color_clip.set_opacity(0)
-    color_clip = color_clip.set_start(line['start']).set_duration(line['end']-line['start'])
-
     centered_clips = [each.set_position('center') for each in out_clips]
 
-    clip_to_overlay = CompositeVideoClip([color_clip]+ out_clips)
-    clip_to_overlay = clip_to_overlay.set_position("center")
+    
+    out_clips = out_clips.set_position("center")
 
 
-    all_linelevel_splits.append(clip_to_overlay)
+    all_linelevel_splits.append(out_clips)
 
   input_video_duration = input_video.duration
 
